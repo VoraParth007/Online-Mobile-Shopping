@@ -62,12 +62,12 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             font-family: 'Poppins', sans-serif;
             color: var(--dark);
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .admin-container {
             max-width: 1400px;
-            margin: 2rem auto;
+            margin: 1rem auto;
             background: #ffffff;
             border-radius: 16px;
             overflow: hidden;
@@ -77,7 +77,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         .dashboard-header {
             background: linear-gradient(120deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -92,10 +92,10 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         }
 
         .header-title i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             background: rgba(255, 255, 255, 0.15);
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -104,45 +104,38 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
 
         .header-title h1 {
             font-weight: 600;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin: 0;
         }
 
         .header-title span {
             font-weight: 300;
             opacity: 0.9;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .header-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             font-weight: 500;
             border-radius: 10px;
-            padding: 0.7rem 1.2rem;
+            padding: 0.6rem 1rem;
             transition: var(--transition);
             border: none;
             box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+            font-size: 0.9rem;
         }
 
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-        }
-
-        .btn-primary {
-            background: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
         }
 
         .btn-success {
@@ -160,52 +153,50 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         }
 
         .dashboard-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 1.5rem;
         }
 
         .stat-card {
             background: white;
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             border-left: 4px solid var(--primary);
-            display: flex;
-            flex-direction: column;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.08);
         }
 
         .stat-title {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--gray);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .stat-info {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.9rem;
+            gap: 5px;
+            font-size: 0.8rem;
             color: var(--success);
         }
 
@@ -220,14 +211,14 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem;
             background: #f9fafc;
             border-bottom: 1px solid #edf2f7;
         }
 
         .table-title {
             font-weight: 600;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--dark);
             margin: 0;
         }
@@ -237,17 +228,18 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             align-items: center;
             background: white;
             border-radius: 10px;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
+            width: 100%;
         }
 
         .search-box input {
             border: none;
             padding: 0.3rem;
-            min-width: 250px;
             outline: none;
             font-family: 'Poppins', sans-serif;
+            width: 100%;
         }
 
         .search-box i {
@@ -271,7 +263,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         }
 
         .table th {
-            padding: 1.1rem 1.5rem;
+            padding: 1rem;
             font-weight: 600;
             color: var(--dark);
             text-align: left;
@@ -279,7 +271,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         }
 
         .table td {
-            padding: 1.2rem 1.5rem;
+            padding: 1rem;
             vertical-align: middle;
             border-bottom: 1px solid #edf2f7;
             transition: var(--transition);
@@ -293,10 +285,6 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             background-color: rgba(67, 97, 238, 0.03);
         }
 
-        .table tbody tr:hover td {
-            background: transparent;
-        }
-
         .user-info {
             display: flex;
             align-items: center;
@@ -304,8 +292,8 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         }
 
         .user-avatar {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: linear-gradient(120deg, var(--primary), var(--secondary));
             display: flex;
@@ -313,7 +301,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             justify-content: center;
             color: white;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .user-details {
@@ -324,21 +312,22 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
         .user-name {
             font-weight: 600;
             margin-bottom: 3px;
+            font-size: 0.95rem;
         }
 
         .user-email {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
         }
 
         .status-badge {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 50px;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .badge-approved {
@@ -358,17 +347,17 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
 
         .action-buttons {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-action {
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 8px;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             transition: var(--transition);
             border: none;
             cursor: pointer;
@@ -389,14 +378,8 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             color: white;
         }
 
-        .btn-disabled {
-            background: #e2e8f0;
-            color: #94a3b8;
-            cursor: not-allowed;
-        }
-
         .no-action {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
             font-style: italic;
         }
@@ -406,19 +389,19 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem;
             background: #f9fafc;
             border-top: 1px solid #edf2f7;
         }
 
         .pagination-info {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--gray);
         }
 
         .pagination {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .page-item {
@@ -429,8 +412,8 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
             background: white;
             color: var(--primary);
@@ -438,6 +421,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             border: 1px solid #e2e8f0;
             transition: var(--transition);
             text-decoration: none;
+            font-size: 0.85rem;
         }
 
         .page-link:hover, .page-link.active {
@@ -446,122 +430,200 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             border-color: var(--primary);
         }
 
-        /* Mobile optimizations */
+        /* ================== MOBILE OPTIMIZATION ================== */
         @media (max-width: 992px) {
             .dashboard-header {
                 flex-direction: column;
                 text-align: center;
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
             
             .header-title {
                 justify-content: center;
+                margin-bottom: 1rem;
             }
             
             .header-actions {
                 justify-content: center;
+                width: 100%;
             }
             
-            .search-box input {
-                min-width: 180px;
+            .btn {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 0.5rem;
             }
         }
 
         @media (max-width: 768px) {
+            .dashboard-content {
+                padding: 1.2rem;
+            }
+            
             .table-header {
                 flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
+                gap: 0.8rem;
+                padding: 0.8rem;
+                text-align: center;
             }
             
             .search-box {
                 width: 100%;
-            }
-            
-            .search-box input {
-                width: 100%;
-                min-width: auto;
+                max-width: 400px;
+                margin: 0 auto;
             }
             
             .table th, .table td {
-                padding: 0.9rem;
+                padding: 0.8rem;
             }
             
-            .action-buttons {
-                flex-direction: column;
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             
-            .btn-action {
-                width: 100%;
-                justify-content: center;
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.4rem;
             }
         }
 
+        /* Enhanced Mobile View (below 576px) */
         @media (max-width: 576px) {
             body {
                 padding: 10px;
             }
             
             .admin-container {
-                margin: 1rem auto;
-                border-radius: 12px;
+                margin: 0.5rem auto;
+                border-radius: 14px;
+            }
+            
+            .dashboard-header {
+                padding: 1rem;
+            }
+            
+            .header-title h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header-title i {
+                width: 40px;
+                height: 40px;
             }
             
             .dashboard-content {
-                padding: 1.5rem 1rem;
+                padding: 1rem;
             }
             
             .stats-container {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
             
             .table-container {
-                border-radius: 12px;
+                border-radius: 14px;
             }
             
-            .table th {
+            /* Card-based layout for mobile */
+            .table-responsive {
+                overflow-x: visible;
+            }
+            
+            .table, .table thead, .table tbody, .table th, .table td, .table tr {
+                display: block;
+                width: 100%;
+            }
+            
+            .table thead {
                 display: none;
             }
             
-            .table td {
-                display: block;
-                padding: 1rem;
-                border-bottom: 1px solid #e2e8f0;
-            }
-            
             .table tr {
-                border-bottom: 1px solid #e2e8f0;
-                display: block;
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
                 border-radius: 12px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                overflow: hidden;
+                background: white;
+                padding: 0;
             }
             
-            .table tr:last-child {
-                margin-bottom: 0;
+            .table td {
+                padding: 1rem;
+                border: none;
+                border-bottom: 1px solid #edf2f7;
+                position: relative;
+                padding-left: 40%;
+            }
+            
+            .table td:last-child {
+                border-bottom: none;
             }
             
             .table td:before {
                 content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 35%;
+                padding-right: 10px;
+                white-space: nowrap;
                 font-weight: 600;
-                display: block;
-                margin-bottom: 0.5rem;
                 color: var(--primary);
+                font-size: 0.85rem;
             }
             
-            .table td .user-info {
+            /* Special handling for user info */
+            .table td[data-label="Partner"] {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                background: rgba(67, 97, 238, 0.05);
+            }
+            
+            .table td[data-label="Partner"]:before {
+                top: 1.5rem;
+                transform: none;
+            }
+            
+            .table td[data-label="Partner"] .user-info {
+                flex-direction: column;
+                text-align: center;
+                margin-left: 40%;
+            }
+            
+            .table td[data-label="Partner"] .user-avatar {
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Action buttons styling */
+            .table td[data-label="Actions"] .action-buttons {
+                flex-direction: column;
+            }
+            
+            .table td[data-label="Actions"] .btn-action {
+                width: 100%;
                 justify-content: center;
                 margin-bottom: 0.5rem;
             }
             
-            .table td .action-buttons {
-                justify-content: center;
+            .table td[data-label="Actions"] .btn-action:last-child {
+                margin-bottom: 0;
             }
             
             .pagination-container {
                 flex-direction: column;
                 gap: 1rem;
                 padding: 1rem;
+                text-align: center;
+            }
+            
+            .pagination {
+                justify-content: center;
+                flex-wrap: wrap;
             }
         }
 
@@ -592,13 +654,13 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
             <div class="header-title">
                 <i class="bi bi-truck"></i>
                 <div>
-                    <h1>Delivery Partners Management</h1>
-                    <span>Manage and review delivery partner applications</span>
+                    <h1>Delivery Partners</h1>
+                    <span>Manage delivery partner applications</span>
                 </div>
             </div>
             <div class="header-actions">
                 <a href="delivery_earnings.php" class="btn btn-success">
-                    <i class="bi bi-graph-up"></i> Earnings Report
+                    <i class="bi bi-graph-up"></i> Earnings
                 </a>
                 <a href="dashboard.php" class="btn btn-outline-light">
                     <i class="bi bi-grid"></i> Dashboard
@@ -614,12 +676,12 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
                     </div>
                     <div class="stat-value"><?php echo mysqli_num_rows($query); ?></div>
                     <div class="stat-info">
-                        <i class="bi bi-arrow-up"></i> Active delivery partners
+                        <i class="bi bi-arrow-up"></i> Registered partners
                     </div>
                 </div>
                 <div class="stat-card animate__animated animate__slideUp animate__delay-2">
                     <div class="stat-title">
-                        <i class="bi bi-hourglass-split"></i> Pending Review
+                        <i class="bi bi-hourglass-split"></i> Pending
                     </div>
                     <div class="stat-value">
                         <?php 
@@ -629,7 +691,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
                         ?>
                     </div>
                     <div class="stat-info">
-                        <i class="bi bi-exclamation-circle"></i> Needs attention
+                        <i class="bi bi-exclamation-circle"></i> Needs review
                     </div>
                 </div>
                 <div class="stat-card animate__animated animate__slideUp animate__delay-3">
@@ -666,7 +728,7 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
 
             <div class="table-container animate__animated animate__fadeInUp">
                 <div class="table-header">
-                    <h2 class="table-title">Delivery Partners List</h2>
+                    <h2 class="table-title">Delivery Partners</h2>
                     <div class="search-box">
                         <i class="bi bi-search"></i>
                         <input type="text" id="searchInput" placeholder="Search partners...">
@@ -790,17 +852,17 @@ $query = mysqli_query($conn, "SELECT * FROM delivery_boys");
                 });
             }
             
-            // Responsive table enhancement for mobile
-            if (window.innerWidth < 576) {
-                const tableHeaders = document.querySelectorAll('.table th');
-                const tableCells = document.querySelectorAll('.table td');
-                
-                tableHeaders.forEach((header, index) => {
-                    const headerText = header.textContent;
-                    tableCells.forEach(cell => {
-                        if (cell.cellIndex === index) {
-                            cell.setAttribute('data-label', headerText);
-                        }
+            // Mobile touch feedback
+            if (window.innerWidth < 768) {
+                tableRows.forEach(row => {
+                    row.addEventListener('touchstart', function() {
+                        this.style.transform = 'scale(0.98)';
+                        this.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+                    });
+                    
+                    row.addEventListener('touchend', function() {
+                        this.style.transform = '';
+                        this.style.boxShadow = '';
                     });
                 });
             }
