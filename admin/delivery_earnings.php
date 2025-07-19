@@ -45,6 +45,11 @@ $total_earnings_query = "SELECT SUM(earnings) AS total_earnings FROM (
 ) AS earnings_table";
 $total_earnings_result = mysqli_query($conn, $total_earnings_query);
 $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?? 0;
+
+// Get total delivered orders
+$total_orders_query = "SELECT COUNT(*) AS count FROM orders WHERE status = 'Delivered'";
+$total_orders_result = mysqli_query($conn, $total_orders_query);
+$total_orders = mysqli_fetch_assoc($total_orders_result)['count'] ?? 0;
 ?>
 
 <!DOCTYPE html>
@@ -388,7 +393,7 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
             border-color: var(--primary);
         }
 
-        /* Mobile optimizations */
+        /* Mobile optimizations - Enhanced for better mobile experience */
         @media (max-width: 992px) {
             .dashboard-header {
                 flex-direction: column;
@@ -398,10 +403,23 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
             
             .header-title {
                 justify-content: center;
+                margin-bottom: 1rem;
             }
             
             .header-actions {
                 justify-content: center;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 0.5rem;
+            }
+            
+            .commission-info {
+                font-size: 0.9rem;
+                padding: 0.5rem;
             }
         }
 
@@ -410,15 +428,30 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
                 flex-direction: column;
                 gap: 1rem;
                 padding: 1rem;
+                text-align: center;
             }
             
             .commission-info {
                 width: 100%;
                 justify-content: center;
+                margin-top: 0.5rem;
             }
             
             .table th, .table td {
                 padding: 0.9rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stat-card {
+                padding: 1.2rem;
+            }
+            
+            .stat-value {
+                font-size: 1.8rem;
             }
         }
 
@@ -436,48 +469,106 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
                 padding: 1.5rem 1rem;
             }
             
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-            
             .table-container {
                 border-radius: 12px;
+                overflow: visible;
             }
             
-            .table th {
-                display: none;
+            /* Enhanced mobile table design */
+            .table-responsive {
+                overflow-x: visible;
             }
             
-            .table td {
+            .table, .table thead, .table tbody, .table th, .table td, .table tr {
                 display: block;
-                padding: 1rem;
-                border-bottom: 1px solid #e2e8f0;
+                width: 100%;
+            }
+            
+            .table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
             }
             
             .table tr {
-                border-bottom: 1px solid #e2e8f0;
-                display: block;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 border-radius: 12px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                overflow: hidden;
+                background: white;
+                padding: 0;
             }
             
-            .table tr:last-child {
-                margin-bottom: 0;
+            .table td {
+                padding: 1rem;
+                border: none;
+                border-bottom: 1px solid #edf2f7;
+                position: relative;
+                padding-left: 50%;
+            }
+            
+            .table td:last-child {
+                border-bottom: none;
             }
             
             .table td:before {
                 content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
                 font-weight: 600;
-                display: block;
-                margin-bottom: 0.5rem;
                 color: var(--primary);
+                font-size: 0.9rem;
+            }
+            
+            /* Special handling for user info */
+            .table td[data-label="Partner"] {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                background: rgba(67, 97, 238, 0.05);
+            }
+            
+            .table td[data-label="Partner"]:before {
+                top: 1.5rem;
+                transform: none;
+            }
+            
+            .table td[data-label="Partner"] .user-info {
+                flex-direction: column;
+                text-align: center;
+                margin-left: 40%;
+            }
+            
+            .table td[data-label="Partner"] .user-avatar {
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Earnings highlight */
+            .table td[data-label="Earnings"] {
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+            
+            /* Delivered orders styling */
+            .table td[data-label="Delivered Orders"] .badge {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
             }
             
             .pagination-container {
                 flex-direction: column;
                 gap: 1rem;
                 padding: 1rem;
+                text-align: center;
+            }
+            
+            .pagination {
+                justify-content: center;
+                flex-wrap: wrap;
             }
         }
 
@@ -545,14 +636,7 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
                     <div class="stat-title">
                         <i class="bi bi-box-seam"></i> Total Orders
                     </div>
-                    <div class="stat-value">
-                        <?php 
-                        $total_orders_query = "SELECT COUNT(*) AS count FROM orders WHERE status = 'Delivered'";
-                        $total_orders_result = mysqli_query($conn, $total_orders_query);
-                        $total_orders = mysqli_fetch_assoc($total_orders_result)['count'] ?? 0;
-                        echo $total_orders;
-                        ?>
-                    </div>
+                    <div class="stat-value"><?php echo $total_orders; ?></div>
                     <div class="stat-info">
                         <i class="bi bi-check-circle"></i> Delivered orders
                     </div>
@@ -662,6 +746,22 @@ $total_earnings = mysqli_fetch_assoc($total_earnings_result)['total_earnings'] ?
                     }, 500);
                 });
             });
+            
+            // Mobile-specific enhancements
+            if (window.innerWidth < 768) {
+                // Add touch effects for mobile
+                tableRows.forEach(row => {
+                    row.addEventListener('touchstart', function() {
+                        this.style.transform = 'scale(0.98)';
+                        this.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+                    });
+                    
+                    row.addEventListener('touchend', function() {
+                        this.style.transform = '';
+                        this.style.boxShadow = '';
+                    });
+                });
+            }
         });
     </script>
 </body>
